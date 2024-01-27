@@ -20,6 +20,8 @@ public struct FrameInput
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class CharacterController2D : MonoBehaviour, IPlayerController
 {
+
+    [SerializeField] GameObject pauseMenu;
     //[SerializeField] public CharacterStats _stats;
     private Rigidbody2D _rb;
     private CapsuleCollider2D _col;
@@ -144,6 +146,20 @@ public class CharacterController2D : MonoBehaviour, IPlayerController
             _jumpToConsume = true;
             _timeJumpWasPressed = _time;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(pauseMenu.activeSelf)
+            {
+                pauseMenu.GetComponent<UIManager>().UnPauseGame();
+            }
+            else
+            {
+                pauseMenu.GetComponent<UIManager>().PauseGame();
+            }
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            
+        }
     }
 
     private void FixedUpdate()
@@ -190,7 +206,7 @@ public class CharacterController2D : MonoBehaviour, IPlayerController
 
         if (!_jumpToConsume && !HasBufferedJump) return;
 
-        if (_grounded || CanUseCoyote) ExecuteJump();
+        if (_grounded  || CanUseCoyote) ExecuteJump();
 
         _jumpToConsume = false;
     }
