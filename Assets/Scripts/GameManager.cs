@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private List<Scene> sceneList;
+    private List<Scene> sceneList = new List<Scene>();
     public List<Scene> SceneList { get; }
 
     public int currentSceneIndex = 0;
@@ -34,8 +34,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (System.Diagnostics.Debugger.IsAttached)
+        {
+            Application.Quit();
+        }
+    }
     public void LoadScene(int index)
     {
+        if (System.Diagnostics.Debugger.IsAttached)
+        {
+            Application.Quit();
+        }
         currentSceneIndex = index;
         SceneManager.LoadScene(index);
         
