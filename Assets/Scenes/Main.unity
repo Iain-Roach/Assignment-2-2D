@@ -2783,6 +2783,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2901175847158803454, guid: f72a0b49e72fdbf42a9c96de49e356b9, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901175847158803454, guid: f72a0b49e72fdbf42a9c96de49e356b9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1900047563
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901175847158803454, guid: f72a0b49e72fdbf42a9c96de49e356b9, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901175847158803454, guid: f72a0b49e72fdbf42a9c96de49e356b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abd76f6d641256c47957f77bf8856f8e, type: 2}
     - target: {fileID: 6431447605349769565, guid: f72a0b49e72fdbf42a9c96de49e356b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.25
