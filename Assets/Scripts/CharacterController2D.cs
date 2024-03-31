@@ -130,8 +130,9 @@ public class CharacterController2D : MonoBehaviour, IPlayerController
     {
         _frameInput = new FrameInput
         {
-            JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space),
-            JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.Space),
+            //JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space),
+            JumpDown = Input.GetKeyDown(KeyCode.W),
+            JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.W),
             Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
         };
 
@@ -143,6 +144,7 @@ public class CharacterController2D : MonoBehaviour, IPlayerController
 
         if(_frameInput.JumpDown)
         {
+            Debug.Log("Jump Input");
             _jumpToConsume = true;
             _timeJumpWasPressed = _time;
         }
@@ -206,7 +208,7 @@ public class CharacterController2D : MonoBehaviour, IPlayerController
 
         if (!_jumpToConsume && !HasBufferedJump) return;
 
-        if (_grounded  || CanUseCoyote) ExecuteJump();
+        if ((_grounded  || CanUseCoyote) && _jumpToConsume) ExecuteJump();
 
         _jumpToConsume = false;
     }
